@@ -1,0 +1,27 @@
+{
+    "name": "chrome-extension-sample",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "my first chrome extension project",
+    "page_action": {
+        "default_title": "pdf-translate-replacer"
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://translate.google.com/*"
+            ],
+            "js": [
+                "content_scripts.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    }
+}
